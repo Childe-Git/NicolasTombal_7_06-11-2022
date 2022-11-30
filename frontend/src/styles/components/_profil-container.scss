@@ -1,0 +1,178 @@
+.page-container {
+  .update-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+    .part {
+      background-color: $secondaire;
+      width: 550px;
+      margin-left: 10px;
+      margin-right: 10px;
+      border-radius: 20px;
+      padding: 20px;
+      @include logAnim;
+      animation: logAnim forwards 300ms;
+
+      img.picture {
+        border: 2px solid $tertiaire;
+        padding: 2px;
+        width: 20%;
+        max-height: 110px;
+        min-width: 80px;
+        border-radius: 50%;
+        margin-bottom: 12px;
+      }
+      img.caret {
+        width: 20px;
+        float: right;
+        margin-left: -20px;
+        margin-top: 80px;
+        filter: invert(45%) sepia(14%) saturate(23) hue-rotate(-45deg)
+          brightness(119%) contrast(86%);
+        &:hover {
+          cursor: pointer;
+          transform: scale(1.1);
+        }
+        @media screen and (max-width: 969px) {
+          display: none;
+        }
+      }
+      img.caret-down {
+        width: 20px;
+        display: none;
+        margin-bottom: -12px;
+        margin-top: 6px;
+        filter: invert(45%) sepia(14%) saturate(23) hue-rotate(-45deg)
+          brightness(119%) contrast(86%);
+        &:hover {
+          cursor: pointer;
+          transform: scale(1.1);
+        }
+        @media screen and (max-width: 969px) {
+          display: inline;
+        }
+      }
+      label {
+        position: absolute;
+        background-color: lighten($color: $primaire, $amount: 20);
+        border-radius: 25px;
+        padding: 8px;
+        cursor: pointer;
+
+        @media screen and (max-width: 480px) {
+          position: relative;
+        }
+      }
+      input {
+        background-color: lighten($color: $primaire, $amount: 30);
+        border-radius: 25px;
+        margin-top: 2px;
+        padding: 5px;
+        padding-left: 81px;
+        @media screen and (max-width: 480px) {
+          display: none;
+        }
+      }
+      button {
+        margin-top: 18px;
+        background-color: lighten($color: $primaire, $amount: 20);
+        border-radius: 25px;
+        width: 20%;
+        min-width: 120px;
+        padding: 8px;
+        border: none;
+        cursor: pointer;
+        color: $tertiaire;
+        &:hover {
+          @include signUpButtonAnim;
+          animation: signUpButtonAnim forwards 150ms;
+        }
+      }
+    }
+    .right-part {
+      margin-top: 20px;
+      display: none;
+      width: 300px;
+      height: 180px;
+      @media screen and (max-width: 352px) {
+        height: 200px;
+      }
+      .bio-update {
+        h2 {
+          margin-top: -10px;
+        }
+        p.bio {
+          margin-bottom: 0px;
+        }
+        p.createdDate {
+          margin-top: 15px;
+          font-size: 14px;
+          font-weight: bold;
+          @media screen and (max-width: 352px) {
+            font-size: 12px;
+          }
+        }
+        p.updatedDate {
+          font-size: 14px;
+          font-weight: bold;
+          @media screen and (max-width: 320px) {
+            font-size: 12px;
+          }
+        }
+
+        textarea {
+          margin-top: 5px;
+          border: none;
+          outline: none;
+          resize: none;
+          width: 240px;
+          padding: 10px;
+          height: 50px;
+          border-radius: 20px;
+          text-align: center;
+        }
+        .modif {
+          width: 20%;
+          min-width: 180px;
+        }
+      }
+    }
+    .left-anim {
+      animation: leftModalAnim forwards 300ms;
+    }
+    .backward {
+      animation: backward backwards 200ms;
+    }
+    .right-anim {
+      animation: rightModalAnim forwards 300ms;
+    }
+  }
+}
+
+@keyframes rightModalAnim {
+  from {
+    transform: translate(-350px, 0px);
+  }
+  to {
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes leftModalAnim {
+  from {
+    transform: translate(350px, 0px);
+  }
+  to {
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes backward {
+  from {
+    transform: translate(-350px, 0px);
+  }
+  to {
+    transform: translate(0px, 0px);
+  }
+}

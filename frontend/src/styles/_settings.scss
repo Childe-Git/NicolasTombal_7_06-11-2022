@@ -1,0 +1,154 @@
+@font-face {
+  font-family: "font-1";
+  src: url(./assets/font/Lato-Regular.ttf);
+}
+
+$font-1: "font-1", sans-serif;
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $font-1;
+}
+
+#light {
+  background-color: white;
+}
+#dark {
+  background-color: grey;
+}
+
+$primaire: #fd2d01;
+$secondaire: #ffd7d7;
+$tertiaire: #4e5166;
+
+@mixin card-content {
+  border: 1px solid $tertiaire;
+  border-radius: 0px 25px 25px 25px;
+  padding: 8px;
+  margin-left: 25px;
+  text-align: center;
+  word-wrap: break-word;
+  margin-top: -10px;
+  @media screen and (max-width: 380px) {
+    margin-left: 15px;
+  }
+}
+
+@mixin postProfilPicture {
+  width: 50px;
+  border-radius: 50%;
+  border: 2px solid $tertiaire;
+  padding: 2px;
+  background-color: $secondaire;
+  margin-bottom: -78px;
+}
+
+@mixin button {
+  color: $tertiaire;
+  background-color: lighten($color: $primaire, $amount: 20);
+  border: none;
+  border-radius: 25px;
+}
+
+@mixin post-picture {
+  width: 100%;
+  max-width: 400px;
+
+  border-radius: 20px;
+  box-shadow: 2px 2px 4px rgba(51, 51, 51, 0.192);
+}
+
+@mixin dropDown {
+  float: right;
+  margin-left: -25px;
+  margin-top: -5px;
+  position: relative;
+  img {
+    width: 24px;
+    cursor: pointer;
+    &:hover {
+      scale: 1.1;
+    }
+  }
+  &:hover .dropDown-content {
+    display: block;
+    animation: dropDownAnim forwards 250ms;
+  }
+  .dropDown-content {
+    display: none;
+    font-weight: bold;
+    background-color: lighten($color: $primaire, $amount: 20);
+    border: 1px solid;
+    border-color: lighten($color: $primaire, $amount: 10);
+    border-radius: 2px 18px 18px 18px;
+    z-index: 1;
+    padding: 4px;
+    position: absolute;
+    left: 10px;
+    p {
+      color: $tertiaire;
+      font-size: 14px;
+
+      &:hover {
+        cursor: pointer;
+        scale: 1.1;
+      }
+    }
+  }
+}
+
+@mixin activeLogButtonAnim {
+  @keyframes activeLogButtonAnim {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.2);
+    }
+  }
+}
+
+@mixin hoverLogButtonAnim {
+  @keyframes hoverLogButtonAnim {
+    from {
+      transform: translate(0px);
+    }
+    to {
+      transform: translate(4px);
+    }
+  }
+}
+
+@mixin logAnim {
+  @keyframes logAnim {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+@mixin signUpButtonAnim {
+  @keyframes signUpButtonAnim {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.1);
+    }
+  }
+}
+
+@mixin showRightAnim {
+  @keyframes showRightAnim {
+    from {
+      transform: translate(240px 480px);
+    }
+    to {
+      transform: translate(240px 480px);
+    }
+  }
+}

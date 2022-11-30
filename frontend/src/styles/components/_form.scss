@@ -1,0 +1,94 @@
+.connection-form {
+  background-color: $secondaire;
+  box-shadow: 2px 2px 4px rgba(51, 51, 51, 0.192);
+  color: $tertiaire;
+  border-radius: 35px;
+  padding-top: 25px;
+  padding-bottom: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+
+  .form-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    @media screen and (max-width: 460px) {
+      display: block;
+    }
+
+    ul {
+      @media screen and (max-width: 460px) {
+        display: flex;
+        justify-content: space-evenly;
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+
+      li {
+        list-style-type: none;
+        margin-bottom: 15px;
+        cursor: pointer;
+        font-size: 17px;
+        border-radius: 25px;
+        background-color: lighten($color: $primaire, $amount: 20);
+        text-align: center;
+        padding: 5px;
+        max-width: 100px;
+        margin-left: -30px;
+      }
+      .active-btn {
+        @include activeLogButtonAnim;
+        animation: activeLogButtonAnim forwards 100ms;
+      }
+      li:not(.active-btn) {
+        &:hover {
+          @include hoverLogButtonAnim;
+          animation: hoverLogButtonAnim forwards 150ms;
+        }
+      }
+    }
+    form {
+      text-align: center;
+      @include logAnim;
+      animation: logAnim forwards 800ms;
+      label {
+        font-size: 1rem;
+      }
+      input {
+        border-radius: 20px;
+        outline: none;
+        border: none;
+        padding: 5px;
+        text-align: center;
+      }
+      .err {
+        color: $primaire;
+      }
+      img {
+        width: 20px;
+        height: 25px;
+        margin-left: 5px;
+        padding-right: 10px;
+        opacity: 0.7;
+        position: absolute;
+        cursor: pointer;
+      }
+      button {
+        color: $tertiaire;
+        cursor: pointer;
+        font-size: 18px;
+        border-radius: 25px;
+        background-color: lighten($color: $primaire, $amount: 20);
+        text-align: center;
+        padding: 10px;
+        border: none;
+        margin-top: 15px;
+        margin-bottom: -20px;
+        &:hover {
+          @include signUpButtonAnim;
+          animation: signUpButtonAnim forwards 150ms;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,128 @@
+nav {
+  background-color: $secondaire;
+  border-bottom: 2px solid $tertiaire;
+
+  box-shadow: 2px 2px 4px rgba(51, 51, 51, 0.192);
+  @media screen and (max-width: 320px) {
+    border-radius: 0;
+  }
+
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .logo {
+      margin-top: -35px;
+      width: 220px;
+      margin-bottom: -35px;
+      padding-left: 10px;
+      @media screen and (max-width: 320px) {
+        width: 200px;
+        margin-top: -30px;
+      }
+    }
+    .link {
+      color: $tertiaire;
+      text-decoration: none;
+      .userPict {
+        width: 50px;
+        border-radius: 50%;
+        animation: headerAnim forwards 250ms;
+
+        &:hover {
+          .dropDown-container {
+            display: block;
+          }
+        }
+      }
+    }
+    ul {
+      .welcome-msg {
+        margin-bottom: -5px;
+        padding-right: 50px;
+        @media screen and (max-width: 425px) {
+          display: none;
+        }
+
+        .dropDown-container {
+          @include dropDown;
+          animation: headerAnim forwards 250ms;
+          padding: 0;
+          top: 48px;
+          right: 17px;
+
+          img {
+            width: 15px;
+          }
+          .dropDown-content {
+            text-align: center;
+            font-weight: bold;
+            line-height: 10px;
+            width: 100px;
+            border-radius: 25px;
+            left: -45px;
+          }
+        }
+      }
+    }
+    .phone {
+      display: none;
+      @media screen and (max-width: 425px) {
+        display: block;
+        display: flex;
+        justify-content: space-evenly;
+
+        width: 100%;
+
+        margin-top: -20px;
+      }
+      p {
+        color: $tertiaire;
+        cursor: pointer;
+        font-size: 1rem;
+        border-radius: 25px;
+        background-color: lighten($color: $primaire, $amount: 20);
+        padding: 10px;
+        &:hover {
+          @include signUpButtonAnim;
+          animation: signUpButtonAnim forwards 150ms;
+        }
+      }
+    }
+    li {
+      list-style-type: none;
+    }
+    .login {
+      width: 30px;
+      margin-left: -20px;
+      cursor: pointer;
+      padding-top: 10px;
+      padding-right: 20px;
+      animation: headerAnim forwards 250ms;
+      @media screen and (max-width: 320px) {
+        width: 26px;
+      }
+    }
+  }
+}
+
+@keyframes headerAnim {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}

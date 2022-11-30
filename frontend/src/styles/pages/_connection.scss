@@ -1,0 +1,8 @@
+.connection-page {
+  max-width: 450px;
+  margin: 125px auto 0;
+
+  @media screen and (max-width: 380px) {
+    margin: 80px auto 0;
+  }
+}
