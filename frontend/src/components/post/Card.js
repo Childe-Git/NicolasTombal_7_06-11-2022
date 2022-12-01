@@ -78,18 +78,6 @@ const Card = ({ post }) => {
             <img className="post-pict" src={post.picture} alt="post-pict" />
           </a>
         )}
-
-        {post.video && (
-          <iframe
-            width="500"
-            height="300"
-            src={post.video}
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            title={post._id}
-          ></iframe>
-        )}
         <p className="date">Posté le : {dateParser(post.createdAt)}</p>
       </div>
       <div className="card-footer">

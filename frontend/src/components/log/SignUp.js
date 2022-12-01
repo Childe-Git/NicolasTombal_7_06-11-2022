@@ -94,7 +94,9 @@ const SignUp = () => {
     <>
       {formSubmit ? (
         <>
-          <h2 id="welcome">{welcome}</h2>
+          <div className="firstSignUp">
+            <h2>{welcome}</h2>
+          </div>
           <SignIn />
         </>
       ) : (
