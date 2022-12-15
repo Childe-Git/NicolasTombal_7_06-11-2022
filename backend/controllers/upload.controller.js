@@ -1,10 +1,11 @@
 const UserModel = require("../models/User");
-const { uploadErrors } = require("../utils/errors.utils");
 
 exports.uploadProfil = (req, res, next) => {
   UserModel.findByIdAndUpdate(
     req.body.userId,
-    { $set: { picture: `./uploads/profil/${req.file.filename}` } },
+    {
+      $set: { picture: `./uploads/profil/${req.file.filename}` },
+    },
     { new: true, upsert: true, setDefaultsOnInsert: true }
   )
     .then((data) => res.status(200).send(data))

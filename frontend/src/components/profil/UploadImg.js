@@ -16,19 +16,6 @@ const UploadImg = () => {
     dispatch(uploadPicture(data, userData._id));
   };
 
-  // const { getRootProps, getInputProps } = useDropzone({
-  //   accept: "image/*",
-  //   onDrop: (acceptedFiles) => {
-  //     setFile(
-  //       acceptedFiles.map((file) =>
-  //         Object.assign(file, {
-  //           preview: URL.createObjectURL(file),
-  //         })
-  //       )
-  //     );
-  //   },
-  // });
-
   return (
     <form action="" id="form" onSubmit={handlePicture}>
       <label htmlFor="file">Changer sa photo de profil</label>

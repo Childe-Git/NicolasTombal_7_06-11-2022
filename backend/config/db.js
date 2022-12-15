@@ -1,8 +1,9 @@
 const mongoose = require("mongoose");
 
+// Connexion à la DB
 mongoose
   .connect(
-    `mongodb+srv://Admin:jQI4i32WDsLeYqhJ@cluster0.rqwdlhs.mongodb.net/groupomania?retryWrites=true&w=majority`,
+    `mongodb+srv://${process.env.DB_ID}@cluster0.rqwdlhs.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`,
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,

@@ -19,6 +19,7 @@ const Card = ({ post }) => {
     }
     setIsUpdated(false);
   };
+  console.log(post.picture);
   return (
     <li className="card-container" key={post._id}>
       <div className="card-header">
@@ -74,7 +75,7 @@ const Card = ({ post }) => {
           </div>
         )}
         {post.picture && (
-          <a href={`${post.picture}`} target="_bla">
+          <a href={post.picture} target="_bla">
             <img className="post-pict" src={post.picture} alt="post-pict" />
           </a>
         )}

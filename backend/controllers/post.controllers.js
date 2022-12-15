@@ -1,14 +1,13 @@
 const PostModel = require("../models/Post");
 const UserModel = require("../models/User");
 const ObjectId = require("mongoose").Types.ObjectId;
-const { promisify } = require("util");
 const fs = require("fs");
 
 exports.savePost = (req, res, next) => {
   const post = new PostModel({
     posterId: req.body.posterId,
     message: req.body.message,
-    picture: req.file ? `./uploads/post/${req.file.filename}` : "",
+    picture: req.file ? `uploads/posts/${req.file.filename}` : "",
     video: req.body.video,
     likers: [],
     comments: [],
@@ -21,6 +20,7 @@ exports.savePost = (req, res, next) => {
 
 exports.readAllPost = (req, res, next) => {
   PostModel.find()
+    // Affiche les postes par odre de création
     .sort({ createdAt: -1 })
     .then((posts) => res.status(200).send(posts))
     .catch((err) => res.status(404).send(err));
@@ -56,8 +56,15 @@ exports.findOneAndDelete = (req, res, next) => {
   if (!ObjectId.isValid(req.params.id)) {
     return res.status(404).send("ID inconnu :" + req.params.id);
   } else {
-    PostModel.findByIdAndDelete({ _id: req.params.id })
-      .then(() => res.status(200).send({ message: "Post supprimé" }))
+    PostModel.findOne({ _id: req.params.id })
+      .then((post) => {
+        // Trouve l'img qui correspond au poste et la supprime
+        fs.unlink(`../frontend/public/${post.picture}`, () => {
+          PostModel.deleteOne({ _id: req.params.id })
+            .then(() => res.status(200).send(post))
+            .catch((err) => res.status(400).send(err));
+        });
+      })
       .catch((err) => res.status(404).send(err));
   }
 };

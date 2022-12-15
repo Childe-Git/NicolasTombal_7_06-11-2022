@@ -73,8 +73,7 @@ export default createReducer(initialState, (builder) => {
       });
     })
     .addCase(DELETE_POST, (draft, action) => {
-      draft.filter((post) => post._id !== action.payload);
-      return;
+      return draft.filter((post) => post._id !== action.payload);
     })
     .addCase(DELETE_COMMENT, (draft, action) => {
       draft.map((post) => {

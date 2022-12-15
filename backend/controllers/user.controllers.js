@@ -2,6 +2,7 @@ const UserModel = require("../models/User");
 const ObjectId = require("mongoose").Types.ObjectId;
 
 exports.getAllUsers = (req, res, next) => {
+  // Affiche tous les users sans le password
   UserModel.find()
     .select("-password")
     .then((users) => res.status(200).send(users))
@@ -9,6 +10,7 @@ exports.getAllUsers = (req, res, next) => {
 };
 
 exports.getOneUser = (req, res, next) => {
+  // Si l'id est valide alors affiche l'user
   if (!ObjectId.isValid(req.params.id)) {
     return res.status(404).send("ID inconnu :" + req.params.id);
   } else {
@@ -19,6 +21,7 @@ exports.getOneUser = (req, res, next) => {
 };
 
 exports.findOneAndUpdate = (req, res, next) => {
+  // Si l'id est valide alors permet de modifié la bio de l'user
   if (!ObjectId.isValid(req.params.id)) {
     return res.status(404).send("ID inconnu :" + req.params.id);
   } else {
@@ -35,6 +38,7 @@ exports.findOneAndUpdate = (req, res, next) => {
 };
 
 exports.findOneAndDelete = (req, res, next) => {
+  // Si l'id est valide alors permet de supprimer l'user et fait expirer son token
   if (!ObjectId.isValid(req.params.id)) {
     return res.status(404).send("ID inconnu :" + req.params.id);
   } else {

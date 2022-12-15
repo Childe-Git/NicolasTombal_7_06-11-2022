@@ -11,7 +11,7 @@ export const ADD_COMMENT = "ADD_COMMENT";
 export const UPDATE_COMMENT = "UPDATE_COMMENT";
 export const DELETE_COMMENT = "DELETE_COMMENT";
 
-export const getPosts = (num) => {
+export const getPosts = () => {
   return async (dispatch) => {
     return await axios({
       method: "get",

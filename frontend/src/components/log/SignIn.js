@@ -52,6 +52,7 @@ const SignIn = () => {
       e.target.style.opacity = 0.7;
     });
   };
+
   return (
     <form action="" id="form" onSubmit={handleSignIn}>
       <label htmlFor="email">Adresse mail</label>

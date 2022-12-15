@@ -22,13 +22,6 @@ exports.authorization = (req, res, next) => {
   }
 };
 
-exports.authRole = (req, res, next) => {
-  if (res.locals.user.isAdmin === false) {
-    return res.status(401).send("Access denied, you must be an admin");
-  }
-  next();
-};
-
 exports.requireAuth = (req, res, next) => {
   const token = req.cookies.access_token;
   if (token) {
